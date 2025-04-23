@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <header>
+      <div class="h-left">
+        <a href="dashboard.html" class="logo">
+          <span class="img"> </span>
+          <h2></h2>
+        </a>
+      </div>
+
+      <div class="h-right">
+        <a href="#" id="btn-logout" class="login"
+          ><img src="assets/img/user.svg" alt="user-icon" width="30px"
+        /></a>
+      </div>
+    </header>
+    <main>
+      <nav>
+        <a href="">Relatório Geral</a>
+      </nav>
+
+      <div id="table"></div>
+    </main>
+  </body>
+
+  <script src="js/config.js"></script>
+  <script src="js/modulos.js"></script>
+  <script src="js/formadores.js"></script>
+  <script src="js/data.js"></script>
+  <script>
+    const thead = `
+      <th>Módulo</th>
+      <th>Qualificação</th>
+      <th>Turma</th>
+      <th>Formador</th>
+      <th>Verificador</th>
+      <th>Data</th>`;
+
+    getPastas();
+
+    async function getPastas() {
+      let trows = "";
+      const res = await fetch(api_url + "/pasta-evidencia/all");
+      if (res.status === 200) {
+        const data = await res.json();
+        for (const p of data) {
+          const f = formadores.find((f) => f.id === p.formador)
+          const v = formadores.find((f) => f.id === p.verificador)
+          trows += `
+            <tr>
+              <td>${p.modulo.toUpperCase()}</td>
+              <td>${p.qualificacao.toUpperCase()}</td>
+              <td>${p.turma || ""}</td>
+              <td>${f.name} ${f.surname}</td>
+              <td>${v.name} ${v.surname}</td>
+              <td>${p.date}</td>
+            </tr>`;
+        }
+
+        document.getElementById("table").innerHTML = `<table>
+        <thead>
+          ${thead}
+        </thead>
+        <tbody>
+          ${trows}
+        </tbody>
+      </table>`;
+      }
+    }
+  </script>
+</html>

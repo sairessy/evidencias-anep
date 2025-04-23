@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <form>
+      <div class="form-header">
+        <div class="logo">
+          <span class="img"> </span>
+          <h2></h2>
+        </div>
+      </div>
+
+      <div class="form-main">
+        <label for="email">E-mail:</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Introduza seu email"
+          autofocus
+        />
+        <label for="Senha">Senha:</label>
+        <input
+          type="password"
+          name="pass"
+          id="pass"
+          placeholder="Introduza sua senha"
+        />
+        <!-- <a class="a-recovery" href="#">Recuperar a senha</a> -->
+        <button type="submit" class="btn">Entrar</button>
+        <!-- <a class="a-sign" href="signup.html">Cadastrar-se</a> -->
+      </div>
+    </form>
+
+    <footer>
+      Powered by
+      <a target="_blank" href="https://advancedtechspace.com"
+        >advancedtechspace.com</a
+      >
+    </footer>
+  </body>
+
+  <script src="js/config.js"></script>
+  <script>
+    if (localStorage.getItem("user")) {
+      window.location.href = "/dashboard.html";
+    }
+
+    document.querySelector(".logo h2").innerHTML = title;
+
+    document.querySelector("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.querySelector("button");
+      btn.disabled = true;
+      const form = new FormData(e.target);
+      const email = form.get("email");
+      const pass = form.get("pass");
+
+      const res = await fetch(api_url + "/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          app: "pasta-evidencia",
+        },
+        body: JSON.stringify({ email, pass }),
+      }).catch((error) => {
+        console.log(error);
+      });
+
+      if (res.status === 200) {
+        const data = await res.json();
+
+        localStorage.setItem("user", data.user._id);
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Erro");
+      }
+
+      btn.disabled = false;
+    });
+  </script>
+</html>

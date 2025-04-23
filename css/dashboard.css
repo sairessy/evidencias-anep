@@ -1,0 +1,93 @@
+header {
+  background-color: #fff;
+  box-shadow: 0 1px 1px 1px #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  height: 50px;
+  position: sticky;
+  top: 0;
+}
+
+header a.login {
+  background-color: #ddd;
+  border-radius: 100%;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  width: 70%;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 2px 2px #eee;
+  background-color: #fff;
+}
+
+#table {
+  width: 70%;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 2px 2px #eee;
+  background-color: #fff;
+}
+
+table {
+  width: 100%;
+}
+
+table thead {
+  background-color: #ddd;
+  padding: 10px;
+}
+
+table thead th {
+  padding: 10px;
+}
+
+table td {
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+main {
+  min-height: 100vh;
+  width: 100%;
+}
+
+form {
+  padding: 30px;
+  width: 70%;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 30px auto;
+}
+
+label {
+  margin: 5px;
+  font-size: 14px;
+}
+
+input {
+  padding: 8px;
+  border-radius: 5px;
+  border-color: #aaa;
+}
+
+.form {
+  margin-bottom: 40px;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 414px) {
+
+}

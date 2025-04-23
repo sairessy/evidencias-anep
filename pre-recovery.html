@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <form>
+      <div class="form-header">
+        <div class="logo">
+          <span class="img"> </span>
+          <h2></h2>
+        </div>
+      </div>
+
+      <div class="form-main">
+        <label for="email">E-mail:</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Introduza seu email"
+          autofocus
+        />
+
+        <button type="submit" class="btn">Recuperar</button>
+        <a class="a-sign" href="login.html">Iniciar sessão</a>
+      </div>
+    </form>
+
+    <footer>
+      Powered by
+      <a target="_blank" href="https://advancedtechspace.com"
+        >advancedtechspace.com</a
+      >
+    </footer>
+  </body>
+
+  <script src="js/config.js"></script>
+  <script>
+    const url = new URL(window.location.href);
+    const company = url.searchParams.get("c");
+
+    // getUser();
+
+    document.querySelector(".logo h2").innerHTML = title;
+
+    document.querySelector("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const form = new FormData(e.target);
+      const desc = form.get("desc");
+      const tel = form.get("tel");
+      const email = form.get("email");
+
+      const data = { desc, tel, email, company };
+
+      try {
+        const res = await fetch(api_url + "/box/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (res.status === 200) {
+          alert("Obrigado pela sua contribuição.");
+        }
+      } catch (error) {
+        console.log(error);
+        alert("Houve um erro, tente novamente.");
+      }
+
+      e.target.reset();
+    });
+
+    async function getUser() {
+      if (company) {
+        const res = await fetch(api_url + "/user/" + company);
+        const user = await res.json();
+        document.getElementById("company-label").innerText = user.label;
+        document.getElementById("company-img").style.backgroundSize = "cover";
+        document.getElementById("company-img").style.backgroundImage = `url(${
+          api_url + "/cover/" + user.img
+        })`;
+      } else {
+        return;
+      }
+    }
+  </script>
+</html>

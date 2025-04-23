@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <header>
+      <div class="h-left">
+        <a href="dashboard.html" class="logo">
+          <span class="img"> </span>
+          <h2></h2>
+        </a>
+      </div>
+
+      <div class="h-right">
+        <a href="#" id="btn-logout" class="login"
+          ><img src="assets/img/user.svg" alt="user-icon" width="30px"
+        /></a>
+      </div>
+    </header>
+    <main>
+      <nav>
+        <a href="relatorio-geral.html">Relatório Geral</a>
+      </nav>
+      <form>
+        <select name="select-qualificacao" id="select-qualificacao" required></select>
+        <select name="select-turma" id="turma" required>
+          <option value="">Turma</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        <select name="select-nivel" id="select-nivel" required></select>
+        <select name="select-turno" id="select-turno" required></select>
+        <select name="select-bimestre" id="bimestre">
+          <option value="1">1º bimestre</option>
+          <option value="2">2º bimestre</option>
+          <option value="3">3º bimestre</option>
+          <option value="4">4º bimestre</option>
+          <option value="5">5º bimestre</option>
+        </select>
+        <div>
+          <select name="select-modulo" id="select-modulo" required></select>
+        </div>
+        <div>
+          <label for="formador">Formador:</label>
+          <select name="select-formador" id="select-formador" required></select>
+          <label for="verificador">Verificador:</label>
+          <select name="select-verificador" id="select-verificador" required></select>
+        </div>
+        <label for="date">Data da submissão: </label
+        ><input type="date" name="date" id="date" required />
+        <div>
+          <textarea
+            name="desc"
+            id="desc"
+            rows="7"
+            placeholder="Escreva uma nota (opcional)"
+          ></textarea>
+        </div>
+        <button class="btn" type="submit">Submeter</button>
+      </form>
+    </main>
+  </body>
+
+  <script src="js/modulos.js"></script>
+  <script src="js/formadores.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/dashboard.js"></script>
+</html>

@@ -1,0 +1,132 @@
+:root {
+  --primary-color: blueviolet;
+  --logo-bg: var(--primary-color);
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: rgb(0, 0, 0) !important;
+  box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  flex-direction: column;
+}
+
+header .h-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo h2 {
+  color: #aaa;
+  font-weight: lighter;
+}
+
+.logo span {
+  color: #fff;
+  background: url(../assets/img/logo.svg) no-repeat center center/cover;
+  /* background-color: var(--logo-bg); */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--primary-color);
+}
+
+input {
+  background: none;
+  outline: none;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #ddd;
+  display: inline-block;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 10px;
+  outline: none;
+}
+
+textarea {
+  width: 90%;
+  background-color: #f8f8f8;
+  border-color: #fff;
+  padding: 20px;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+.btn {
+  padding: 15px;
+  margin: 20px 5px;
+  display: block;
+  border-radius: 5px;
+  background-color: #8a2be2;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 2px 5px 10px #eee;
+  border-bottom: 2px solid #aaa;
+  width: 200px;
+}
+
+.a-sign,
+.a-recovery {
+  display: block;
+  margin: 10px;
+}
+
+.a-recovery {
+  text-align: right;
+}
+
+.a-sign {
+  text-align: center;
+}
