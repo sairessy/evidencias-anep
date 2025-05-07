@@ -7,6 +7,17 @@
     <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   </head>
   <body>
     <header>
@@ -28,35 +39,63 @@
         <a href="relatorio-geral.html">Relatório Geral</a>
       </nav>
       <form>
-        <select name="select-qualificacao" id="select-qualificacao" required></select>
-        <select name="select-turma" id="turma" required>
-          <option value="">Turma</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-        </select>
-        <select name="select-nivel" id="select-nivel" required></select>
-        <select name="select-turno" id="select-turno" required></select>
-        <select name="select-bimestre" id="bimestre">
-          <option value="1">1º bimestre</option>
-          <option value="2">2º bimestre</option>
-          <option value="3">3º bimestre</option>
-          <option value="4">4º bimestre</option>
-          <option value="5">5º bimestre</option>
-        </select>
         <div>
-          <select name="select-modulo" id="select-modulo" required></select>
+          <select
+            name="select-qualificacao"
+            id="select-qualificacao"
+            required
+          ></select>
+          <select name="select-turma" id="turma" required>
+            <option value="">Turma</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+          </select>
+          <select name="select-nivel" id="select-nivel" required></select>
+          <select name="select-turno" id="select-turno" required></select>
+          <select name="select-bimestre" id="bimestre">
+            <option value="1">1º bimestre</option>
+            <option value="2">2º bimestre</option>
+            <option value="3">3º bimestre</option>
+            <option value="4">4º bimestre</option>
+            <option value="5">5º bimestre</option>
+          </select>
         </div>
-        <div>
-          <label for="formador">Formador:</label>
-          <select name="select-formador" id="select-formador" required></select>
-          <label for="verificador">Verificador:</label>
-          <select name="select-verificador" id="select-verificador" required></select>
+
+        <label for="modulo">Módulo:</label>
+        <div class="wrap-select2">
+          <select
+            class="select-modulo"
+            name="select-modulo"
+            id="select-modulo"
+            required
+          ></select>
         </div>
+
+        <label for="formador">Formador:</label>
+        <div class="wrap-select2">
+          <select
+            class="select-formador"
+            name="select-formador"
+            id="select-formador"
+            required
+          ></select>
+        </div>
+
+        <label for="verificador">Verificador:</label>
+        <div class="wrap-select2">
+          <select
+            class="select-formador"
+            name="select-verificador"
+            id="select-verificador"
+            required
+          ></select>
+        </div>
+        <!-- </div> -->
         <label for="date">Data da submissão: </label
         ><input type="date" name="date" id="date" required />
         <div>

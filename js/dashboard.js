@@ -1,3 +1,11 @@
+$(document).ready(function() {
+  $('.select-modulo').select2({theme: 'classic'});
+});
+
+$(document).ready(function() {
+  $('.select-formador').select2({theme: 'classic'});
+});
+
 if (!localStorage.getItem("user")) {
   window.location.href = "/login.html";
 }
